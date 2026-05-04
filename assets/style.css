@@ -9,6 +9,40 @@
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
 }
 
+.git {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  font-weight: 500;
+  color: #2563eb;
+  font-size: 15px;
+  text-decoration: none;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
+  animation: moveUp 0.5s ease infinite alternate;
+}
+.git:hover {
+  background: rgba(37, 99, 235, 0.18);
+  border-color: rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+}
+@keyframes moveUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-3px);
+  }
+}
+
 body {
   min-height: 100vh;
   background: radial-gradient(
