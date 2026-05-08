@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Task 1 - first website",
       src: "tasks/task1/index.html",
     },
+    {
+      title: "Task 2 - Tic Tac Toe Skeleton",
+      src: "tasks/task2/index.html",
+    },
   ];
   const taskList = document.querySelector(".task-list");
 
