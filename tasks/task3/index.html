@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox Learning Guide</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="flex-col">
+    <header>
+      <div class="header-container flex justify-between items-center">
+        <div class="logo">LEARN_FLEX</div>
+        <nav>
+          <ul class="flex">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Concepts</a></li>
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero flex-col items-center justify-center">
+      <h1>Mastering Layout Flow</h1>
+      <p>
+        A simple guide to understanding modern web layouts with a human touch.
+      </p>
+    </section>
+
+    <main class="main-content flex flex-wrap justify-center">
+      <article class="card flex-col">
+        <div class="card-img flex justify-center items-center">image_01</div>
+        <div class="card-body flex-col">
+          <h3>The Main Axis Concept</h3>
+          <p>
+            Ever felt like centering a div was a nightmare? Flexbox is the tool
+            that finally made it simple, letting you align things without losing
+            your mind.
+          </p>
+          <a href="#" class="btn">Read Guide</a>
+        </div>
+      </article>
+
+      <article class="card flex-col">
+        <div class="card-img flex justify-center items-center">image_02</div>
+        <div class="card-body flex-col">
+          <h3>Fluid Content Wrapping</h3>
+          <p>
+            When screens get small, your content needs to behave. Flex-wrap
+            ensures your layout stays pretty even on those tiny mobile screens.
+          </p>
+          <a href="#" class="btn">Read Guide</a>
+        </div>
+      </article>
+
+      <article class="card flex-col">
+        <div class="card-img flex justify-center items-center">image_03</div>
+        <div class="card-body flex-col">
+          <h3>Spacing and Distribution</h3>
+          <p>
+            It’s all about the space between. Whether you want things packed
+            tight or spread out evenly, justify-content has your back.
+          </p>
+          <a href="#" class="btn">Read Guide</a>
+        </div>
+      </article>
+
+      <article class="card flex-col">
+        <div class="card-img flex justify-center items-center">image_04</div>
+        <div class="card-body flex-col">
+          <h3>The Power of Direction</h3>
+          <p>
+            Modern design is modular. Switching from rows to columns helps you
+            build faster and keeps your code from turning into a giant mess.
+          </p>
+          <a href="#" class="btn">Read Guide</a>
+        </div>
+      </article>
+    </main>
+
+    <footer class="flex-col items-center justify-center">
+      <div class="footer-links flex justify-center items-center">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Support</a>
+      </div>
+      <p>&copy; 2026 Flex Guide. Stay flexible.</p>
+    </footer>
+  </body>
+</html>

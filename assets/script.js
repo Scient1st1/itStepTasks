@@ -8,6 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Task 2 - Tic Tac Toe Skeleton",
       src: "tasks/task2/index.html",
     },
+    {
+      title: "Task 3 - Flexbox Layout Useage",
+      src: "tasks/task3/index.html",
+    },
   ];
   const taskList = document.querySelector(".task-list");
 
