@@ -16,6 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Task 4 - OCEANPETS Template",
       src: "tasks/task4/index.html",
     },
+    {
+      title: "Task 5 - Apply Form",
+      src: "tasks/task5/index.html",
+    },
   ];
   const taskList = document.querySelector(".task-list");
 

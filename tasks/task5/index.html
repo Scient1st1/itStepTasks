@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+  </head>
+  <body>
+    <form action="" method="post">
+      <div class="welcomeText">
+        <div class="logo">
+          <img src="./src/images/rocket.jpg" alt="rocket logo" />
+        </div>
+        <h2>Welcome</h2>
+        <p>You Are 30 seconds away from earning your own money!</p>
+        <div class="login">
+          <button type="submit">Login</button>
+        </div>
+      </div>
+      <div class="apply">
+        <div class="toggle-container">
+          <a class="toggle-btn active">Employee</a>
+          <a class="toggle-btn">Hirer</a>
+        </div>
+        <h1>Apply as Employee</h1>
+        <div class="register-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <input type="text" placeholder="First Name *" required />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Your Email *" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Last Name *" required />
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Your Phone *" required />
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password *" required />
+            </div>
+            <div class="form-group">
+              <select required>
+                <option value="" disabled selected>Please select you</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                placeholder="Confirm Password *"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Enter Your Answer *" required />
+            </div>
+          </div>
+
+          <div class="radio-group">
+            <label>
+              <input type="radio" name="gender" value="male" checked />
+              <span>Male</span>
+            </label>
+            <label>
+              <input type="radio" name="gender" value="female" />
+              <span>Female</span>
+            </label>
+          </div>
+
+          <button type="submit" class="register-btn">Register</button>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
