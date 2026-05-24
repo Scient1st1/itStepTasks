@@ -20,6 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Task 5 - Apply Form",
       src: "tasks/task5/index.html",
     },
+    {
+      title: "Task 6.1 - Grid during lesson",
+      src: "tasks/task6/practical.html",
+    },
+    {
+      title: "Task 6.2 - OCEANPETS Template",
+      src: "tasks/task6/index.html",
+    },
   ];
   const taskList = document.querySelector(".task-list");
 
