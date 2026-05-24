@@ -12,3 +12,6 @@
 </br>
 დავალება 5 - Apply Form;
 </br>
+დავალება 6.1 - Grid during lesson;
+</br>
+დავალება 6.2 - Oceanpets Template;
