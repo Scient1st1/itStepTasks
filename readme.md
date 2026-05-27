@@ -15,3 +15,5 @@
 დავალება 6.1 - Grid during lesson;
 </br>
 დავალება 6.2 - Oceanpets Template;
+</br>
+დავალება 7 - Oceanpets nth-childs;
