@@ -1,0 +1,311 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a:link,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+.wrapper {
+  min-height: 100vh;
+  background-image: url("../images/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* header  */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px clamp(20px, 8vw, 119px);
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  line-height: 15px;
+  background: linear-gradient(to right, #ffffff 60%, rgba(255, 255, 255, 0.2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 900;
+  font-size: 18px;
+  color: transparent;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
+}
+
+nav a {
+  color: rgba(211, 211, 211, 0.719);
+  font-weight: 600;
+}
+nav a.active,
+nav a:hover {
+  color: #fff;
+}
+
+/* hero start  */
+
+.hero {
+  width: min(900px, 90%);
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.hero h2 {
+  font-size: 40px;
+  background: linear-gradient(
+    to right,
+    #ffffffe8 60%,
+    rgba(255, 255, 255, 0.2)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-weight: 900;
+  color: transparent;
+  text-align: center;
+}
+
+/* fish grid  */
+#fishes {
+  width: min(1200px, 90%);
+  margin: 30px auto 150px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.grid-item img {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin-bottom: 30px;
+  transform: scale(1.5);
+}
+
+.grid-item h2 {
+  color: #fff;
+  text-align: center;
+}
+
+.grid-item {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 250px;
+  background: rgba(255, 255, 255, 0.03);
+  overflow: hidden;
+}
+
+/* footer  */
+
+footer {
+  background: rgba(190, 190, 190, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  width: 100%;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* ── Responsive breakpoints  ── */
+@media (min-width: 1025px) {
+  .grid-item:nth-child(3n + 2) {
+    transform: translateY(40px);
+  }
+
+  .grid-item:nth-child(3n) {
+    transform: translateY(80px);
+  }
+
+  .grid-item:nth-child(n + 4) {
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 325px) {
+  .grid-item img {
+    transform: scale(1);
+  }
+}
+
+/*  (≤ 1024px) */
+@media (max-width: 1024px) {
+  header {
+    padding: 20px 40px;
+    margin-bottom: 80px;
+  }
+
+  nav {
+    gap: 18px;
+  }
+
+  .hero {
+    width: 90%;
+  }
+
+  .hero h2 {
+    font-size: 52px;
+  }
+
+  #fishes {
+    width: 90%;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+
+  .grid-item {
+    min-height: 0;
+  }
+
+  .roadmap_inner {
+    padding: 40px 60px 24px;
+  }
+
+  #roadmap h2 {
+    font-size: 46px;
+  }
+
+  #roadmap p {
+    width: 70%;
+  }
+}
+
+/*  (≤ 768px) */
+@media (max-width: 768px) {
+  header {
+    padding: 16px 24px;
+    margin-bottom: 60px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  nav a {
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero {
+    width: 100%;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  #fishes {
+    width: 100%;
+    margin: 24px auto 80px;
+    grid-template-columns: 1fr;
+  }
+
+  .grid-item {
+    padding: 18px;
+  }
+
+  .play a {
+    width: 64px;
+    height: 64px;
+  }
+
+  .roadmap_inner {
+    padding: 30px 24px 20px;
+  }
+
+  #roadmap h2 {
+    font-size: 36px;
+  }
+
+  #roadmap p {
+    width: 100%;
+  }
+
+  .roadmap-lists-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .list-inner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .list:last-child .list-inner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .socials {
+    justify-content: center;
+    gap: 18px;
+  }
+}
+
+/* (≤ 480px) */
+@media (max-width: 480px) {
+  .hero h2 {
+    font-size: 26px;
+  }
+
+  #fishes {
+    gap: 16px;
+  }
+
+  .grid-item {
+    padding: 16px;
+  }
+
+  #roadmap h2 {
+    font-size: 28px;
+  }
+
+  .play a {
+    width: 56px;
+    height: 56px;
+  }
+}
