@@ -17,3 +17,6 @@
 დავალება 6.2 - Oceanpets Template;
 </br>
 დავალება 7 - Oceanpets nth-childs;
+</br>
+დავალება 8 - Oceanpets, animations responsive
+</br>

@@ -32,6 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Task 7 - OCEANPETS nth-child grid",
       src: "tasks/task7/index.html",
     },
+    {
+      title: "Task 8 - OCEANPETS animations, responsive, navbar toggle",
+      src: "tasks/task8/index.html",
+    },
   ];
   const taskList = document.querySelector(".task-list");
 
