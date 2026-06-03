@@ -36,6 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Task 8 - OCEANPETS animations, responsive, navbar toggle",
       src: "tasks/task8/index.html",
     },
+    {
+      title: "Task 9 - Practical during lecture",
+      src: "tasks/task9/practical.html",
+    },
   ];
   const taskList = document.querySelector(".task-list");
 
