@@ -48,6 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Task 13 - SASS Buttons",
       src: "tasks/task13/index.html",
     },
+    {
+      title: "Task 14 - Final Html/Css Project",
+      src: "tasks/task14-finalHtmlProject/index.html",
+    },
   ];
   const taskList = document.querySelector(".task-list");
 
