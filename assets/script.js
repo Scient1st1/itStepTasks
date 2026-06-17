@@ -40,6 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Task 9 - Practical during lecture",
       src: "tasks/task9/practical.html",
     },
+    {
+      title: "Task 11 - Bootstrap",
+      src: "tasks/task11/index.html",
+    },
+    {
+      title: "Task 13 - SASS Buttons",
+      src: "tasks/task13/index.html",
+    },
   ];
   const taskList = document.querySelector(".task-list");
 

@@ -1,0 +1,100 @@
+.btn {
+  display: inline-block;
+  font-family: sans-serif;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #ffffff;
+}
+.btn-primary:hover {
+  background-color: rgb(1.762295082, 87.2336065574, 213.237704918);
+  border-color: rgb(1.6786885246, 83.0950819672, 203.1213114754);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #ffffff;
+}
+.btn-secondary:hover {
+  background-color: rgb(84.3605150215, 91.3905579399, 97.6394849785);
+  border-color: rgb(79.6326180258, 86.2686695279, 92.1673819742);
+}
+
+.btn-success {
+  background-color: #198754;
+  border-color: #198754;
+  color: #ffffff;
+}
+.btn-success:hover {
+  background-color: rgb(17.03125, 91.96875, 57.225);
+  border-color: rgb(15.4375, 83.3625, 51.87);
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #ffffff;
+}
+.btn-danger:hover {
+  background-color: rgb(189.2151898734, 32.7848101266, 47.7721518987);
+  border-color: rgb(180.5215189873, 31.2784810127, 45.5772151899);
+}
+
+.btn-warning {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: #000000;
+}
+.btn-warning:hover {
+  background-color: rgb(211, 158.25, 0);
+  border-color: rgb(200.8, 150.6, 0);
+}
+
+.btn-info {
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+  color: #000000;
+}
+.btn-info:hover {
+  background-color: rgb(10.3794466403, 161.2806324111, 191.6205533597);
+  border-color: rgb(9.8553359684, 153.1367588933, 181.9446640316);
+}
+
+.btn-light {
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+  color: #000000;
+}
+.btn-light:hover {
+  background-color: rgb(218.25, 223.5, 228.75);
+  border-color: rgb(212.3, 218.4, 224.5);
+}
+
+.btn-dark {
+  background-color: #212529;
+  border-color: #212529;
+  color: #ffffff;
+}
+.btn-dark:hover {
+  background-color: rgb(10.2567567568, 11.5, 12.7432432432);
+  border-color: rgb(5.7081081081, 6.4, 7.0918918919);
+}
+
+.button-container {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding: 2rem;
+}/*# sourceMappingURL=style.css.map */
