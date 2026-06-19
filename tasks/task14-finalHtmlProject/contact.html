@@ -17,6 +17,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
   </head>
   <body class="bg-gray-50 text-gray-800">
     <nav
@@ -54,7 +55,7 @@
       </div>
       <div class="flex items-center space-x-5 max-sm:space-x-3">
         <div
-          class="flex items-center space-x-2 text-sm font-semibold text-brandRed cursor-pointer text-xl"
+          class="flex items-center space-x-2 text-sm font-semibold text-brandRed cursor-pointer text-xl transition-colors duration-300 hover:text-red-800"
         >
           <svg
             class="w-4 h-4"
@@ -74,7 +75,7 @@
         <!-- Burger Icon for Mobile -->
         <button
           id="mobile-menu-button"
-          class="md:hidden text-gray-600 text-2xl"
+          class="md:hidden text-gray-600 hover:text-textBlue transition-colors duration-300 text-2xl"
         >
           <i class="fas fa-bars"></i>
         </button>
@@ -86,7 +87,7 @@
       class="md:hidden fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 ease-in-out"
     >
       <div class="flex justify-end p-6">
-        <button id="close-mobile-menu" class="text-gray-600 text-2xl">
+        <button id="close-mobile-menu" class="text-gray-600 hover:text-textBlue transition-colors duration-300 text-2xl">
           <i class="fas fa-times"></i>
         </button>
       </div>

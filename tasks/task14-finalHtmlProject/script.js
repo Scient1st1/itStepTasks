@@ -1,8 +1,69 @@
+// Tailwind configuration
+window.tailwind = window.tailwind || {};
+window.tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: { sans: ["Inter", "sans-serif"] },
+      colors: {
+        primaryBlue: "#0c122c",
+        textBlue: "#1a2352",
+        brandRed: "#d91c1c",
+        customBlue: "#000080",
+      },
+    },
+  },
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".nav-link");
   const mobileMenuButton = document.getElementById("mobile-menu-button");
   const closeMobileMenuButton = document.getElementById("close-mobile-menu");
   const mobileMenu = document.getElementById("mobile-menu");
+
+  // Injected CSS
+  const style = document.createElement("style");
+  style.textContent = `
+    .nav-link {
+      position: relative;
+      transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-link:not(.active):hover {
+      color: #d91c1c !important;
+    }
+    .nav-link.active {
+      color: #1a2352 !important;
+      text-decoration: none !important;
+    }
+    @media (min-width: 768px) {
+      .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #d91c1c;
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .nav-link:not(.active):hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+      }
+      .nav-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #1a2352;
+        transform: scaleX(1);
+      }
+    }
+  `;
+  document.head.appendChild(style);
 
   // set active link
   const setActiveLink = (activeLink) => {
@@ -94,20 +155,4 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log(initialActiveLink);
 
   setActiveLink(initialActiveLink);
-
-  /********  Tailwind Config  *****************/
-
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: { sans: ["Inter", "sans-serif"] },
-        colors: {
-          primaryBlue: "#0c122c",
-          textBlue: "#1a2352",
-          brandRed: "#d91c1c",
-          customBlue: "#000080",
-        },
-      },
-    },
-  };
 });
