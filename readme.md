@@ -29,3 +29,8 @@
 example site:
 https://www.wix.com/website-template/view/html/wh-1121?originUrl=https%3A%2F%2Fwww.wix.com%2Fwebsite%2Ftemplates&tpClick=view_button&esi=8b817cbc-e642-4a3d-845c-756af810b07d
 </br>
+
+## JS
+
+დავალება 1 - basic operators and console.log();
+</br>
