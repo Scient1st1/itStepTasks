@@ -56,6 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Task 15 - Js Start",
       src: "tasks/task15JsStart/index.html",
     },
+    {
+      title: "Task 16 - JS If/Else/Switch/Timers",
+      src: "tasks/task16/index.html",
+    },
   ];
   const taskList = document.querySelector(".task-list");
 
