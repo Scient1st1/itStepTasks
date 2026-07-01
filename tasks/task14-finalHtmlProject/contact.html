@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book a Free Consultation - Lynch & Powell</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./script.js"></script>
+    <script src="./script.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
@@ -17,7 +17,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
   </head>
   <body class="bg-gray-50 text-gray-800">
     <nav
@@ -87,7 +86,10 @@
       class="md:hidden fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 ease-in-out"
     >
       <div class="flex justify-end p-6">
-        <button id="close-mobile-menu" class="text-gray-600 hover:text-textBlue transition-colors duration-300 text-2xl">
+        <button
+          id="close-mobile-menu"
+          class="text-gray-600 hover:text-textBlue transition-colors duration-300 text-2xl"
+        >
           <i class="fas fa-times"></i>
         </button>
       </div>

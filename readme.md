@@ -34,3 +34,5 @@ https://www.wix.com/website-template/view/html/wh-1121?originUrl=https%3A%2F%2Fw
 
 დავალება 1 - basic operators and console.log();
 </br>
+დავალება 2 - task16 - if, else, switch, timers;
+</br>
