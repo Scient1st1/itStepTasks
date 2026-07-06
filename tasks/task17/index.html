@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js task 2</title>
+  </head>
+  <body>
+    <!-- 5.20 -->
+    <h2>Current Time</h2>
+
+    <p id="demo"></p>
+    <script>
+      function myTimer() {
+        const date = new Date();
+        document.getElementById("demo").innerHTML = date.toLocaleTimeString();
+      }
+
+      myTimer();
+
+      setInterval(myTimer, 1000);
+    </script>
+    <script src="./src/script.js"></script>
+  </body>
+</html>
