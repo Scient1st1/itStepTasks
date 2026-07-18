@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 20px;
+  color: #333;
+}
+.controls {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+.controls input,
+.controls select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+.btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+  width: 100%;
+}
+.btn:hover {
+  background: #218838;
+}
+.favorites {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #ccc;
+}
+.favorites ul {
+  list-style-type: none;
+  padding: 0;
+}
+.favorites li {
+  background: #e9ecef;
+  margin-bottom: 5px;
+  padding: 10px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.favorites button {
+  background-color: crimson;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}

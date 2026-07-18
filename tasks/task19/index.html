@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Filter</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search by title..." />
+      <select id="genre">
+        <option value="all">All Genres</option>
+        <option value="Action">Action</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+        <option value="Drama">Drama</option>
+        <option value="Crime">Crime</option>
+      </select>
+      <input type="number" id="minYear" placeholder="Minimum Year" min="1900" />
+    </div>
+
+    <div class="grid" id="movie-container"></div>
+
+    <div class="favorites">
+      <h2>Favorites</h2>
+      <ul id="favorites-list"></ul>
+    </div>
+
+    <script src="./src/script.js"></script>
+  </body>
+</html>

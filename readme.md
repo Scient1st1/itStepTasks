@@ -38,3 +38,5 @@ https://www.wix.com/website-template/view/html/wh-1121?originUrl=https%3A%2F%2Fw
 </br>
 დავალება 3 - task17 - for, arrays, dates
 </br>
+დავალება 3 - task18 - for, theory
+</br>
