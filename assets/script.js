@@ -68,6 +68,10 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Task 18 - JS Loops theory and tasks",
       src: "tasks/task18/index.html",
     },
+    {
+      title: "Task 19 - JS Filters and Foreachs",
+      src: "tasks/task19/index.html",
+    },
   ];
   const taskList = document.querySelector(".task-list");
 
