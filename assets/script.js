@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
       src: "tasks/task19/index.html",
     },
     {
-      title: "Task 12 - AI Generated Content (markup tags)",
+      title: "Task 20 - AI Generated Content (markup tags)",
       src: "tasks/task20/index.html",
     },
   ];
