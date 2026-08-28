@@ -72,6 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Task 19 - JS Filters and Foreachs",
       src: "tasks/task19/index.html",
     },
+    {
+      title: "Task 12 - AI Generated Content (markup tags)",
+      src: "tasks/task20/index.html",
+    },
   ];
   const taskList = document.querySelector(".task-list");
 

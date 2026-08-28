@@ -40,3 +40,9 @@ https://www.wix.com/website-template/view/html/wh-1121?originUrl=https%3A%2F%2Fw
 </br>
 დავალება 3 - task18 - for, theory
 </br>
+</br>
+დავალება 4 - task19 - Movies and favourites
+</br>
+</br>
+დავალება 5 - task20 - AI generated page, markup tags
+</br>

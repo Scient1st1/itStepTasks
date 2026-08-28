@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & HTML Markup Guide</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; background-color: #f9f9f9; }
+        header { background: #1a73e8; color: white; padding: 20px; text-align: center; }
+        nav { background: #0d47a1; padding: 10px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        main { display: flex; padding: 20px; max-width: 1200px; margin: 0 auto; }
+        section { flex: 3; padding-right: 20px; }
+        aside { flex: 1; background: #eef2f5; padding: 15px; border-radius: 5px; height: fit-content; }
+        article { background: #fff; border: 1px solid #ddd; margin-bottom: 20px; padding: 15px; border-radius: 5px; }
+        footer { background: #333; color: white; text-align: center; padding: 15px; margin-top: 20px; }
+        
+        /* განახლებული სტილები გამოკვეთილი კოდისთვის */
+        code { 
+            background: #e0e0e0; 
+            color: #d73a49; 
+            padding: 3px 6px; 
+            border-radius: 4px; 
+            font-family: 'Courier New', Courier, monospace; 
+            font-weight: bold;
+            font-size: 0.95em;
+        }
+        pre { 
+            background: #1e1e1e; 
+            color: #d4d4d4; 
+            padding: 15px; 
+            border-radius: 5px; 
+            overflow-x: auto; 
+            border-left: 4px solid #1a73e8;
+        }
+        pre code { 
+            background: transparent; 
+            color: #4ec9b0; 
+            padding: 0; 
+            font-weight: normal;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>HTML Markup-ის ძირითადი ელემენტები</h1>
+        <p>AI ტექნოლოგიების მაგალითზე</p>
+    </header>
+
+    <nav>
+        <a href="#header">Header</a>
+        <a href="#nav">Nav</a>
+        <a href="#main">Main & Article</a>
+        <a href="#aside">Aside</a>
+        <a href="#footer">Footer</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2>სტრუქტურული თეგები (Semantic Tags)</h2>
+
+            <article id="header">
+                <h3>1. &lt;header&gt;</h3>
+                <p>გამოიყენება გვერდის ან სექციის სანავიგაციო და შესავალი ნაწილისთვის.</p>
+                <pre><code>&lt;header&gt;
+    &lt;h1&gt;ხელოვნური ინტელექტი&lt;/h1&gt;
+&lt;/header&gt;</code></pre>
+            </article>
+
+            <article id="nav">
+                <h3>2. &lt;nav&gt;</h3>
+                <p>მოიცავს ნავიგაციის ბმულებს გვერდზე გადასაადგილებლად.</p>
+                <pre><code>&lt;nav&gt;
+    &lt;a href="#home"&gt;მთავარი&lt;/a&gt;
+    &lt;a href="#models"&gt;AI მოდელები&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+            </article>
+
+            <article id="main">
+                <h3>3. &lt;main&gt; და &lt;article&gt;</h3>
+                <p><code>&lt;main&gt;</code> განსაზღვრავს გვერდის ძირითად, უნიკალურ შინაარსს, ხოლო <code>&lt;article&gt;</code> დამოუკიდებელ კონტენტს.</p>
+                <pre><code>&lt;main&gt;
+    &lt;article&gt;
+        &lt;h4&gt;Large Language Models&lt;/h4&gt;
+        &lt;p&gt;LLM არის AI მოდელი...&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;</code></pre>
+            </article>
+
+            <article id="aside">
+                <h3>4. &lt;aside&gt;</h3>
+                <p>გამოიყენება დამატებითი, გვერდითი ინფორმაციისთვის (sidebar).</p>
+                <pre><code>&lt;aside&gt;
+    &lt;h4&gt;სწრაფი ფაქტი&lt;/h4&gt;
+    &lt;p&gt;AI იყენებს ნეირონულ ქსელებს.&lt;/p&gt;
+&lt;/aside&gt;</code></pre>
+            </article>
+        </section>
+
+        <aside>
+            <h3>AI სტატისტიკა</h3>
+            <p>ხელოვნური ინტელექტის განვითარება 2026 წელს ახალ ეტაპზეა.</p>
+            <ul>
+                <li>Machine Learning</li>
+                <li>Deep Learning</li>
+                <li>Computer Vision</li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer id="footer">
+        <p>&copy; 2026 AI Markup Guide. ყველა უფლება დაცულია.</p>
+    </footer>
+
+</body>
+</html>
