@@ -80,6 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Task 21 - Countdown Timer",
       src: "tasks/task21/index.html",
     },
+    {
+      title: "Task 22 -  Dashboard (MockAPI.io)",
+      src: "tasks/task22/index.html",
+    },
   ];
   const taskList = document.querySelector(".task-list");
 

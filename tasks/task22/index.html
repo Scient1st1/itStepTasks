@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #0f172a;
+        color: #f8fafc;
+        padding: 2rem 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+      }
+
+      .dashboard {
+        width: 100%;
+        max-width: 800px;
+        background: #1e293b;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .dashboard h2 {
+        color: #38bdf8;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .form-container {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      input {
+        flex: 1;
+        min-width: 200px;
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        border: 1px solid #334155;
+        background: #0f172a;
+        color: #fff;
+        font-size: 0.95rem;
+      }
+
+      input:focus {
+        outline: 2px solid #38bdf8;
+      }
+
+      button {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 6px;
+        background: #0284c7;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      button:hover {
+        background: #0369a1;
+      }
+
+      .loader {
+        display: none;
+        color: #94a3b8;
+        margin-bottom: 1rem;
+      }
+
+      .course-list {
+        display: grid;
+        gap: 1rem;
+        max-height: 500px;
+        overflow-y: auto;
+        padding-right: 5px;
+      }
+
+      .course-card {
+        background: #0f172a;
+        padding: 1rem 1.25rem;
+        border-radius: 8px;
+        border-left: 4px solid #38bdf8;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .course-info h3 {
+        font-size: 1.1rem;
+        color: #f1f5f9;
+      }
+
+      .course-info p {
+        font-size: 0.85rem;
+        color: #94a3b8;
+        margin-top: 4px;
+      }
+
+      .btn-delete {
+        background: #e11d48;
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+      }
+
+      .btn-delete:hover {
+        background: #be123c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard">
+      <h2> მართვის პანელი (MockAPI.io)</h2>
+
+      <form id="courseForm" class="form-container">
+        <input
+          type="text"
+          id="nameInput"
+          placeholder="კურსის / სტუდენტის სახელი (name)"
+          required
+        />
+        <button type="submit">დამატება</button>
+      </form>
+
+      <div id="loader" class="loader">მონაცემები იტვირთება...</div>
+      <div id="courseList" class="course-list"></div>
+    </div>
+
+    <script>
+      const API_URL = "https://6aa801e79b08676cd32bc2bd.mockapi.io/courses";
+
+      const courseList = document.getElementById("courseList");
+      const courseForm = document.getElementById("courseForm");
+      const nameInput = document.getElementById("nameInput");
+      const loader = document.getElementById("loader");
+
+      //  GET:
+      async function fetchCourses() {
+        loader.style.display = "block";
+        try {
+          const res = await fetch(API_URL);
+          if (!res.ok) throw new Error("მონაცემების წამოღება ვერ მოხერხდა");
+          const courses = await res.json();
+          renderCourses(courses);
+        } catch (err) {
+          courseList.innerHTML = `<p style="color:#f43f5e">${err.message}</p>`;
+        } finally {
+          loader.style.display = "none";
+        }
+      }
+
+      //  Render:
+      function renderCourses(courses) {
+        courseList.innerHTML = "";
+        courses.forEach((course) => {
+          const card = document.createElement("div");
+          card.className = "course-card";
+          card.innerHTML = `
+                    <div class="course-info">
+                        <h3>${escapeHtml(course.name || course.title || "უსახელო")}</h3>
+                        <p>ID: ${escapeHtml(course.id)}</p>
+                    </div>
+                    <button class="btn-delete" onclick="deleteCourse('${course.id}')">წაშლა</button>
+                `;
+          courseList.appendChild(card);
+        });
+      }
+
+      //  POST:
+      courseForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const name = nameInput.value;
+
+        try {
+          const res = await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name }),
+          });
+          if (!res.ok) throw new Error("დამატება ვერ მოხერხდა");
+
+          courseForm.reset();
+          fetchCourses();
+        } catch (err) {
+          alert(err.message);
+        }
+      });
+
+      //  DELETE:
+      async function deleteCourse(id) {
+        try {
+          const res = await fetch(`${API_URL}/${id}`, {
+            method: "DELETE",
+          });
+          if (!res.ok) throw new Error("წაშლა ვერ მოხერხდა");
+          fetchCourses();
+        } catch (err) {
+          alert(err.message);
+        }
+      }
+
+      function escapeHtml(str) {
+        return str
+          ? String(str)
+              .replace(/&/g, "&amp;")
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;")
+          : "";
+      }
+
+      fetchCourses();
+    </script>
+  </body>
+</html>
