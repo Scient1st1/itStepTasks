@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="ka">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flip Countdown</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #0f172a;
+        color: #f8fafc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        text-align: center;
+        padding: 2.5rem 2rem;
+        background: rgba(30, 41, 59, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        max-width: 680px;
+        width: 95%;
+      }
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        color: #38bdf8;
+        letter-spacing: 0.5px;
+      }
+      .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 1.2rem;
+      }
+      .flip-unit-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .label {
+        font-size: 0.8rem;
+        color: #94a3b8;
+        margin-top: 0.75rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+      .flip-clock {
+        display: flex;
+        gap: 3px;
+      }
+      .flip-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        font-size: 2.5rem;
+        font-weight: 700;
+        width: 55px;
+        height: 75px;
+        line-height: 75px;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+      }
+      .top,
+      .bottom,
+      .flip-card .top-back,
+      .flip-card .bottom-back {
+        height: 50%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        user-select: none;
+        overflow: hidden;
+        background: #1e293b;
+        text-align: center;
+      }
+      .top,
+      .top-back {
+        top: 0;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        background-color: #1e293b;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+        color: #f43f5e;
+      }
+      .top::before,
+      .top-back::before {
+        content: attr(data-value);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 75px;
+        line-height: 75px;
+      }
+      .bottom,
+      .bottom-back {
+        bottom: 0;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        background-color: #1a2332;
+        color: #e11d48;
+      }
+      .bottom::before,
+      .bottom-back::before {
+        content: attr(data-value);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 75px;
+        line-height: 75px;
+      }
+      .top-back {
+        z-index: 2;
+        transform-origin: 50% 100%;
+        transform: rotateX(90deg);
+        background-color: #26334d;
+        opacity: 0;
+      }
+      .bottom-back {
+        z-index: 1;
+        transform-origin: 50% 0%;
+        transform: rotateX(-90deg);
+      }
+      .flip-card.flip .top-back {
+        opacity: 1;
+        animation: flip-top 0.3s ease-in forwards;
+      }
+      .flip-card.flip .bottom-back {
+        animation: flip-bottom 0.3s 0.3s ease-out forwards;
+      }
+
+      @keyframes flip-top {
+        100% {
+          transform: rotateX(0deg);
+        }
+      }
+      @keyframes flip-bottom {
+        100% {
+          transform: rotateX(0deg);
+        }
+      }
+
+      @media (max-width: 550px) {
+        .countdown {
+          gap: 0.6rem;
+        }
+        .flip-card {
+          width: 42px;
+          height: 60px;
+          font-size: 1.8rem;
+          line-height: 60px;
+        }
+        .top::before,
+        .top-back::before,
+        .bottom::before,
+        .bottom-back::before {
+          height: 60px;
+          line-height: 60px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>დრო 2027 წლის 12 მარტამდე ⏳</h1>
+      <div class="countdown">
+        <div class="flip-unit-container">
+          <div class="flip-clock">
+            <div class="flip-card" id="d1">
+              <div class="top" data-value="0"></div>
+              <div class="bottom" data-value="0"></div>
+              <div class="top-back" data-value="0"></div>
+              <div class="bottom-back" data-value="0"></div>
+            </div>
+            <div class="flip-card" id="d2">
+              <div class="top" data-value="0"></div>
+              <div class="bottom" data-value="0"></div>
+              <div class="top-back" data-value="0"></div>
+              <div class="bottom-back" data-value="0"></div>
+            </div>
+          </div>
+          <span class="label">დღე</span>
+        </div>
+
+        <div class="flip-unit-container">
+          <div class="flip-clock">
+            <div class="flip-card" id="h1">
+              <div class="top" data-value="0"></div>
+              <div class="bottom" data-value="0"></div>
+              <div class="top-back" data-value="0"></div>
+              <div class="bottom-back" data-value="0"></div>
+            </div>
+            <div class="flip-card" id="h2">
+              <div class="top" data-value="0"></div>
+              <div class="bottom" data-value="0"></div>
+              <div class="top-back" data-value="0"></div>
+              <div class="bottom-back" data-value="0"></div>
+            </div>
+          </div>
+          <span class="label">საათი</span>
+        </div>
+
+        <div class="flip-unit-container">
+          <div class="flip-clock">
+            <div class="flip-card" id="m1">
+              <div class="top" data-value="0"></div>
+              <div class="bottom" data-value="0"></div>
+              <div class="top-back" data-value="0"></div>
+              <div class="bottom-back" data-value="0"></div>
+            </div>
+            <div class="flip-card" id="m2">
+              <div class="top" data-value="0"></div>
+              <div class="bottom" data-value="0"></div>
+              <div class="top-back" data-value="0"></div>
+              <div class="bottom-back" data-value="0"></div>
+            </div>
+          </div>
+          <span class="label">წუთი</span>
+        </div>
+
+        <div class="flip-unit-container">
+          <div class="flip-clock">
+            <div class="flip-card" id="s1">
+              <div class="top" data-value="0"></div>
+              <div class="bottom" data-value="0"></div>
+              <div class="top-back" data-value="0"></div>
+              <div class="bottom-back" data-value="0"></div>
+            </div>
+            <div class="flip-card" id="s2">
+              <div class="top" data-value="0"></div>
+              <div class="bottom" data-value="0"></div>
+              <div class="top-back" data-value="0"></div>
+              <div class="bottom-back" data-value="0"></div>
+            </div>
+          </div>
+          <span class="label">წამი</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const targetDate = new Date("March 12, 2027 00:00:00").getTime();
+
+      function flipCard(cardId, newValue) {
+        const card = document.getElementById(cardId);
+        const top = card.querySelector(".top");
+        const bottom = card.querySelector(".bottom");
+        const topBack = card.querySelector(".top-back");
+        const bottomBack = card.querySelector(".bottom-back");
+
+        const currentValue = top.getAttribute("data-value");
+        if (currentValue === newValue) return;
+
+        topBack.setAttribute("data-value", newValue);
+        bottomBack.setAttribute("data-value", newValue);
+
+        card.classList.add("flip");
+
+        setTimeout(() => {
+          top.setAttribute("data-value", newValue);
+        }, 300);
+
+        setTimeout(() => {
+          bottom.setAttribute("data-value", newValue);
+          card.classList.remove("flip");
+        }, 600);
+      }
+
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference <= 0) {
+          document.querySelector(".container").innerHTML =
+            "<h1>12 მარტი დადგა! 🎉</h1>";
+          return;
+        }
+
+        const days = String(
+          Math.floor(difference / (1000 * 60 * 60 * 24)),
+        ).padStart(2, "0");
+        const hours = String(
+          Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        ).padStart(2, "0");
+        const minutes = String(
+          Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+        ).padStart(2, "0");
+        const seconds = String(
+          Math.floor((difference % (1000 * 60)) / 1000),
+        ).padStart(2, "0");
+
+        flipCard("d1", days[0]);
+        flipCard("d2", days[1]);
+        flipCard("h1", hours[0]);
+        flipCard("h2", hours[1]);
+        flipCard("m1", minutes[0]);
+        flipCard("m2", minutes[1]);
+        flipCard("s1", seconds[0]);
+        flipCard("s2", seconds[1]);
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    </script>
+  </body>
+</html>

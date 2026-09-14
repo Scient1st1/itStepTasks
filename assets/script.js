@@ -76,6 +76,10 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Task 20 - AI Generated Content (markup tags)",
       src: "tasks/task20/index.html",
     },
+    {
+      title: "Task 21 - Countdown Timer",
+      src: "tasks/task21/index.html",
+    },
   ];
   const taskList = document.querySelector(".task-list");
 
