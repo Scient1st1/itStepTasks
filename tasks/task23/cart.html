@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#101916" />
+    <title>Your basket — Nocturne Goods</title>
+    <link rel="stylesheet" href="shop.css" />
+  </head>
+  <body data-page="cart">
+    <div id="lightWash"></div>
+    <div id="glow"></div>
+    <div id="lantern-scene">
+      <canvas id="lantern-canvas" aria-hidden="true"></canvas>
+    </div>
+    <button
+      id="pull-handle"
+      aria-label="Pull lantern cord to toggle the light"
+      title="Pull to toggle the lantern light"
+    ></button>
+    <header class="topbar">
+      <a class="logo" href="index.html">NOCTURNE<span>.</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a><a href="catalog.html">Shop all</a
+        ><a href="cart.html" aria-current="page"
+          >Cart <span id="cart-count"></span
+        ></a>
+      </nav>
+      <div class="nav-right">
+        <span id="user-label">The evening collection</span
+        ><a id="account-link" href="login.html">Sign in</a><button class="lamp-toggle" id="lantern-toggle" type="button" aria-pressed="false">Hide lantern</button>
+      </div>
+    </header>
+    <div class="lantern-spacer"></div>
+    <main class="main wrap">
+      <div class="eyebrow">Your quiet little corner</div>
+      <h1>Your basket</h1>
+      <p class="lede">A few good things for the hours ahead.</p>
+      <div id="cart-status" class="status" role="status"></div>
+      <section class="cart-box" id="cart-content"></section>
+    </main>
+    <footer class="footer">
+      <div class="footer-inner wrap">
+        <span>NOCTURNE GOODS · LIGHT FOR THE QUIET HOURS</span
+        ><span>Pull the lantern cord to change the mood</span>
+      </div>
+    </footer>
+    <div class="hint">Pull the cord for light · drag lantern to swing · Space</div>
+    <script src="config.js" defer></script>
+    <script src="lantern.js" defer></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

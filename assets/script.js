@@ -84,6 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "Task 22 -  Dashboard (MockAPI.io)",
       src: "tasks/task22/index.html",
     },
+    {
+      title: "Task 23 -  JS Project",
+      src: "tasks/task23/index.html",
+    },
   ];
   const taskList = document.querySelector(".task-list");
 

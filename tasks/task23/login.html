@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#101916" />
+    <title>Sign in — Nocturne Goods</title>
+    <link rel="stylesheet" href="shop.css" />
+  </head>
+  <body data-page="login">
+    <div id="lightWash"></div>
+    <div id="glow"></div>
+    <div id="lantern-scene">
+      <canvas id="lantern-canvas" aria-hidden="true"></canvas>
+    </div>
+    <button
+      id="pull-handle"
+      aria-label="Pull lantern cord to toggle the light"
+      title="Pull to toggle the lantern light"
+    ></button>
+    <header class="topbar">
+      <a class="logo" href="index.html">NOCTURNE<span>.</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a><a href="catalog.html">Shop all</a
+        ><a href="cart.html">Cart <span id="cart-count"></span></a>
+      </nav>
+      <div class="nav-right">
+        <span id="user-label">Welcome back</span
+        ><a id="account-link" href="login.html" aria-current="page">Sign in</a
+        ><button
+          class="lamp-toggle"
+          id="lantern-toggle"
+          type="button"
+          aria-pressed="false"
+        >
+          Hide lantern
+        </button>
+      </div>
+    </header>
+    <div class="lantern-spacer"></div>
+    <main class="main wrap">
+      <div class="auth-layout">
+        <div class="auth-card">
+          <div class="eyebrow">Welcome back</div>
+          <h1>Come on in.</h1>
+          <p class="muted" style="font-size: 13px; line-height: 1.6">
+            Sign in to pick up where you left off.
+          </p>
+          <div class="notice" id="auth-message" role="status" hidden></div>
+          <form id="login-form">
+            <label
+              >Email (user: test@test.com)<input
+                class="field"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required /></label
+            ><label
+              >Password (try: test12345)<input
+                class="field"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required
+                minlength="6" /></label
+            ><button class="button" type="submit">Sign in</button>
+            <div class="status" id="login-status" role="status"></div>
+          </form>
+          <p class="auth-foot">
+            New to Nocturne? <a href="register.html">Create an account</a>
+          </p>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="footer-inner wrap">
+        <span>NOCTURNE GOODS · LIGHT FOR THE QUIET HOURS</span
+        ><span>Pull the lantern cord to change the mood</span>
+      </div>
+    </footer>
+    <div class="hint">Pull the cord for light · drag lantern to swing · Space</div>
+    <script src="config.js" defer></script>
+    <script src="lantern.js" defer></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

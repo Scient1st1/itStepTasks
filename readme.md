@@ -46,6 +46,12 @@ https://www.wix.com/website-template/view/html/wh-1121?originUrl=https%3A%2F%2Fw
 </br>
 დავალება 5 - task20 - AI generated page, markup tags
 </br>
+დავალება 6 - task21 - Countdown Timer
+</br>
+დავალება 7 - task22 - Dashboard (MockAPI.io)
+</br>
+დავალება 8 - task23 - JS Project
+</br>
 
 ## Hosted on
 

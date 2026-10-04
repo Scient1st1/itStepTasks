@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#101916" />
+    <title>Nocturne Goods — Light for the quiet hours</title>
+    <link rel="stylesheet" href="shop.css" />
+  </head>
+  <body data-page="home">
+    <div id="lightWash"></div>
+    <div id="glow"></div>
+    <div id="lantern-scene">
+      <canvas id="lantern-canvas" aria-hidden="true"></canvas>
+    </div>
+    <button
+      id="pull-handle"
+      aria-label="Pull lantern cord to toggle the light"
+      title="Pull to toggle the lantern light"
+    ></button>
+    <header class="topbar">
+      <a class="logo" href="index.html">NOCTURNE<span>.</span></a>
+      <nav class="nav">
+        <a href="index.html" aria-current="page">Home</a
+        ><a href="catalog.html">Shop all</a
+        ><a href="cart.html">Cart <span id="cart-count"></span></a>
+      </nav>
+      <div class="nav-right">
+        <span id="user-label">The evening collection</span
+        ><a id="account-link" href="login.html">Sign in</a><button class="lamp-toggle" id="lantern-toggle" type="button" aria-pressed="false">Hide lantern</button>
+      </div>
+    </header>
+    <div class="lantern-spacer"></div>
+    <main class="main wrap">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Objects for slower evenings</div>
+          <h1>Find your<br /><em>afterglow.</em></h1>
+          <p class="lede">
+            Thoughtful lanterns, warm bulbs and small comforts for the hours
+            when the day finally lets go.
+          </p>
+          <div
+            style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 27px"
+          >
+            <a class="button" href="catalog.html"
+              >Explore the collection <span>↗</span></a
+            ><a class="button ghost" href="cart.html">View your basket</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit"></div>
+          <div class="orb">
+            N°<br /><small
+              style="font: 10px &quot;DM Sans&quot;; letter-spacing: 0.22em"
+              >LIGHT / HOME</small
+            >
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Selected pieces</div>
+            <h2 style="margin-top: 9px">Made for the golden hour</h2>
+          </div>
+          <a class="button ghost small" href="catalog.html">View all</a>
+        </div>
+        <p class="status" id="home-status" role="status"></p>
+        <div class="product-grid" data-products="featured"></div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-inner wrap">
+        <span>NOCTURNE GOODS · LIGHT FOR THE QUIET HOURS</span
+        ><span>Pull the lantern cord to change the mood</span>
+      </div>
+    </footer>
+    <div class="hint">Pull the cord for light · drag lantern to swing · Space</div>
+    <script src="config.js" defer></script>
+    <script src="lantern.js" defer></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
