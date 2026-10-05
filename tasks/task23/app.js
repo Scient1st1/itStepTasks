@@ -3,6 +3,8 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 const config = window.LANTERN_SHOP_CONFIG || {};
 const page = document.body.dataset.page;
 const $ = (selector, root = document) => root.querySelector(selector);
+
+// check that imageURl is a valid URL, otherwise returns an empty string, escape HTML
 const esc = (value) =>
   String(value ?? "").replace(
     /[&<>"']/g,
@@ -36,6 +38,7 @@ const tabAuthStorage = {
     window.localStorage.removeItem(key);
   },
 };
+// check supabase config
 const sb =
   config.supabaseUrl && config.supabaseAnonKey
     ? createClient(config.supabaseUrl, config.supabaseAnonKey, {
@@ -52,6 +55,7 @@ let session = null,
   isAdmin = false,
   allProducts = [];
 
+// util function to display messages in the UI, optionally errors
 function say(target, text, error = false) {
   if (!target) return;
   target.textContent = text;
@@ -66,6 +70,8 @@ function unavailable() {
   document.querySelectorAll('button[type="submit"]').forEach((button) => {
     button.disabled = true;
   });
+
+  // if content not loading from supabase
   const n = $(".main");
   if (n) {
     const box = document.createElement("div");
@@ -75,6 +81,8 @@ function unavailable() {
     n.prepend(box);
   }
 }
+
+// convert currency values to a formatted string, e.g. 1234.5 → "$1,234.50"
 function money(price, currency = "USD") {
   try {
     return new Intl.NumberFormat(undefined, {
@@ -85,6 +93,8 @@ function money(price, currency = "USD") {
     return `${currency} ${Number(price) || 0}`;
   }
 }
+
+// user label and account link in the header
 function setAccount(user) {
   currentUser = user || null;
   const label = $("#user-label"),
@@ -105,6 +115,8 @@ function setAccount(user) {
       : null;
   }
 }
+
+// cart live count in the header
 async function refreshCartCount() {
   const node = $("#cart-count");
   if (!node || !sb || !currentUser) {
@@ -118,6 +130,8 @@ async function refreshCartCount() {
   const count = (data || []).reduce((sum, row) => sum + row.quantity, 0);
   node.textContent = count ? `(${count})` : "";
 }
+
+// check if the current user is an admin
 async function checkAdmin() {
   if (!sb || !currentUser) return false;
   const { data, error } = await sb
@@ -129,6 +143,7 @@ async function checkAdmin() {
   return Boolean(data);
 }
 
+// generate a product card
 function productCard(product, admin = false) {
   const img = imageUrl(product.image_url);
   const visual = img
@@ -140,6 +155,8 @@ function productCard(product, admin = false) {
       : '<span class="muted" style="font-size:10px"> · Out of stock</span>';
   return `<article class="product-card">${visual}<div class="product-info"><div class="product-cat">${esc(product.category || "Goods")}${stock}</div><h3>${esc(product.name)}</h3><p>${esc(product.description || "")}</p><div class="product-bottom"><span class="price">${money(product.price, product.currency)}</span><button class="button small" data-add="${esc(product.id)}" ${Number(product.stock) < 1 ? "disabled" : ""}>Add to basket</button></div>${admin ? `<div style="display:flex;gap:8px;margin-top:12px"><button class="button ghost small" data-edit="${esc(product.id)}">Edit</button><button class="button danger small" data-delete="${esc(product.id)}">Delete</button></div>` : ""}</div></article>`;
 }
+
+// render products into a target element or show message if none
 function renderProducts(
   target,
   products,
@@ -151,6 +168,8 @@ function renderProducts(
     ? products.map((p) => productCard(p, admin)).join("")
     : `<div class="empty" style="grid-column:1/-1">${esc(emptyMessage)}</div>`;
 }
+
+// fetch products from the database, ordered by creation date
 async function fetchProducts() {
   const { data, error } = await sb
     .from("products")
@@ -159,6 +178,7 @@ async function fetchProducts() {
   if (error) throw error;
   return data || [];
 }
+// if homepage returns featured products
 async function initHome() {
   const target = $('[data-products="featured"]');
   try {
@@ -183,6 +203,8 @@ async function initHome() {
     );
   }
 }
+
+// render products into the catalog with search, filter, and sort options
 function renderCatalog() {
   const q = ($("#search")?.value || "").trim().toLowerCase();
   const category = $("#category-filter")?.value || "";
@@ -208,6 +230,8 @@ function renderCatalog() {
     "No pieces match that search. Try another filter.",
   );
 }
+
+// reset product form to default values
 function resetProductForm() {
   const form = $("#product-form");
   if (!form) return;
@@ -220,6 +244,8 @@ function resetProductForm() {
   $("#cancel-edit").hidden = true;
   say($("#admin-status"), "");
 }
+
+// initial catalogue on manage products page
 async function initCatalog() {
   const panel = $("#admin-panel");
   isAdmin = await checkAdmin();
@@ -242,6 +268,7 @@ async function initCatalog() {
   $("#search")?.addEventListener("input", renderCatalog);
   $("#category-filter")?.addEventListener("change", renderCatalog);
   $("#sort-filter")?.addEventListener("change", renderCatalog);
+  // add to cart from admin panel
   $('[data-products="catalog"]')?.addEventListener("click", async (e) => {
     const add = e.target.closest("[data-add]");
     if (add) {
@@ -289,6 +316,8 @@ async function initCatalog() {
   $("#cancel-edit")?.addEventListener("click", resetProductForm);
   $("#product-form")?.addEventListener("submit", saveProduct);
 }
+
+// create a new product or update an existing one
 async function saveProduct(e) {
   e.preventDefault();
   const form = e.currentTarget,
@@ -340,6 +369,8 @@ async function saveProduct(e) {
     button.disabled = false;
   }
 }
+
+// add to cart function for both catalog and admin panel
 async function addToCart(productId) {
   if (!currentUser) {
     location.href = "login.html?next=cart.html";
@@ -388,12 +419,15 @@ async function addToCart(productId) {
     await refreshCartCount();
   }
 }
+// check if the product has an image
 function productVisual(product, alt) {
   const img = imageUrl(product?.image_url);
   return img
     ? `<img src="${esc(img)}" alt="${esc(alt)}" loading="lazy">`
     : '<div class="product-placeholder">✦</div>';
 }
+
+// cart items page with controls
 async function initCart() {
   const host = $("#cart-content"),
     status = $("#cart-status");
@@ -403,6 +437,8 @@ async function initCart() {
     return;
   }
   say(status, "Loading your basket…");
+
+  // get cart data from the database
   const { data, error } = await sb
     .from("cart_items")
     .select(
@@ -421,13 +457,18 @@ async function initCart() {
       '<div class="empty">Your basket is waiting for something lovely.<br><a class="button" style="margin-top:18px" href="catalog.html">Browse the collection</a></div>';
     return;
   }
+  // usable means the cart items that have a valid product associated with them. avoid deleted ones;
   const usable = rows.filter((x) => x.product);
+  // set used for unique currencies in the cart, subtotals per currency
   const currencies = [...new Set(usable.map((x) => x.product.currency))];
+
   const totals = {};
   for (const item of usable)
     totals[item.product.currency] =
       (totals[item.product.currency] || 0) +
       Number(item.product.price) * item.quantity;
+
+  // host is cart content div and rendering the cart items with their details
   host.innerHTML = `<div>${rows
     .map((item) => {
       const p = item.product;
@@ -438,6 +479,8 @@ async function initCart() {
     .join(
       "",
     )}</div><div class="cart-total"><span>Subtotal</span><span>${currencies.map((c) => money(totals[c], c)).join(" + ") || money(0)}</span></div><div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><a class="button ghost" href="catalog.html">Continue browsing</a><button class="button danger" id="clear-cart">Clear basket</button></div>`;
+
+  // remove items from the cart, update quantities, and clear the cart
   host.addEventListener(
     "click",
     async (e) => {
@@ -491,6 +534,8 @@ async function initCart() {
     { once: true },
   );
 }
+
+//  log in  with Supabase auth, redirect to next page or home after login
 async function initLogin() {
   $("#login-form")?.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -514,6 +559,8 @@ async function initLogin() {
       : "index.html";
   });
 }
+
+// register with supabase auth, redirect to home after registration
 async function initRegister() {
   $("#register-form")?.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -548,6 +595,7 @@ async function initRegister() {
   });
 }
 
+// page initialization and session management
 async function start() {
   if (!sb) {
     unavailable();
